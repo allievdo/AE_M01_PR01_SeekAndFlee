@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Versioning;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditor.Timeline;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 
 public class FleeBehaviour : MonoBehaviour
 {
@@ -30,7 +24,7 @@ public class FleeBehaviour : MonoBehaviour
         velocity.Normalize();
         velocity *= maxSpeed;
 
-        rb.AddForce(velocity);
+        rb.AddForce(velocity * Time.deltaTime);
 
         //face the direction we want to move
         float targetAngle = newOrientation(character.rotation.eulerAngles.y, velocity);

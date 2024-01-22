@@ -26,7 +26,7 @@ public class SeekBehaviour : MonoBehaviour
         velocity.Normalize();
         velocity *= maxSpeed;
 
-        rb.AddForce(velocity);
+        rb.AddForce(velocity * Time.deltaTime);
 
         //face the direction we want to move
         float targetAngle = newOrientation(character.rotation.eulerAngles.y, velocity);
